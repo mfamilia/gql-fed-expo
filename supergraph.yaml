@@ -1,0 +1,10 @@
+federation_version: =2.3.2
+subgraphs:
+  registry:
+    routing_url: http://localhost:3031/graphql
+    schema:
+      file: ./services/registry/schema.gql
+  paper:
+    routing_url: http://localhost:3032/graphql
+    schema:
+      file: ./services/paper/schema.gql

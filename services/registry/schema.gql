@@ -1,0 +1,33 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Cart {
+  id: Int!
+  items: [CartItem!]!
+  totalPrice: Float!
+}
+
+type CartItem {
+  count: Int!
+  id: Int!
+  product: Product!
+}
+
+type Product {
+  id: Int!
+  name: String!
+  price: Float!
+}
+
+type Query {
+  cart(id: Int!): Cart!
+  product(id: Int!): Product!
+  products: [Product!]!
+  registry: RegistryQuery!
+}
+
+type RegistryQuery {
+  product(id: Int!): Product!
+  products: [Product!]!
+}
