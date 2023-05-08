@@ -3,8 +3,8 @@ subgraphs:
   registry:
     routing_url: http://localhost:3031/graphql
     schema:
-      file: ./services/registry/schema.gql
+      file: ./schemas/registry.gql
   paper:
     routing_url: http://localhost:3032/graphql
     schema:
-      file: ./services/paper/schema.gql
+      file: ./schemas/paper.gql

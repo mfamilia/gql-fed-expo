@@ -1,0 +1,21 @@
+services:
+  registry:
+    container_name: registry
+    build:
+      dockerfile: ./services/registry/Dockerfile
+      context: .
+    ports:
+      - 3031:3031
+  paper:
+    container_name: paper
+    build:
+      dockerfile: ./services/paper/Dockerfile
+      context: .
+    ports:
+      - 3032:3032
+  member:
+    build:
+      dockerfile: ./services/member/Dockerfile
+      context: .
+    ports:
+      - 3033:3033

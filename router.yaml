@@ -3,11 +3,14 @@ headers:
     request:
       - propagate:
           matching: .*
+cors:
+  allow_any_origin: true
 sandbox:
   enabled: true
 homepage:
   enabled: false
 supergraph:
+  listen: 0.0.0.0:4000
   introspection: true
 include_subgraph_errors:
   all: true
