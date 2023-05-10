@@ -1,0 +1,48 @@
+serve: 
+  cors:
+    exposedHeaders:
+      - authentication
+sources:
+  - name: registries
+    handler:
+      graphql:
+        endpoint: http://registry:3031/graphql
+        operationHeaders:
+          authorization: '{context.headers.authorization}'
+    transforms:
+      - encapsulate:
+          applyTo:
+            query: true
+            mutation: true
+            subscription: true 
+      - prefix:
+          value: Registry_
+  - name: papers
+    handler:
+      graphql:
+        endpoint: http://paper:3032/graphql 
+        operationHeaders:
+          authorization: '{context.headers.authorization}'
+    transforms:
+      - encapsulate:
+          applyTo:
+            query: true
+            mutation: true
+            subscription: true    
+      - prefix:
+          value: Paper_
+  - name: membership 
+    handler:
+      openapi:
+        source: http://member:3033/api-json
+        endpoint: http://member:3033/
+        operationHeaders:
+          authorization: '{context.headers.authorization}'
+    transforms:
+      - encapsulate:
+          applyTo:
+            query: true
+            mutation: true
+            subscription: true     
+      - prefix:
+          value: Membership_ 

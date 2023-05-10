@@ -14,8 +14,24 @@ services:
     ports:
       - 3032:3032
   member:
+    container_name: member
     build:
       dockerfile: ./services/member/Dockerfile
       context: .
     ports:
       - 3033:3033
+  mesh:
+    container_name: mesh
+    build:
+      dockerfile: ./mesh/Dockerfile
+      context: .
+    ports:
+      - 3034:4000
+    links:
+      - member
+      - paper
+      - registry
+    depends_on:
+      - member
+      - paper
+      - registry

@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@graphql-mesh/cli": "^0.82.35",
+    "@graphql-mesh/graphql": "^0.93.1",
+    "@graphql-mesh/openapi": "^0.93.1",
+    "@graphql-mesh/transform-encapsulate": "^0.93.1",
+    "@graphql-mesh/transform-prefix": "^0.93.1",
+    "@whatwg-node/fetch": "^0.8.8",
+    "graphql": "^16.6.0"
+  },
+  "scripts": {
+    "start": "mesh dev",
+    "build": "mesh build"
+  }
+}
