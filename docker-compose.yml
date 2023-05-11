@@ -35,3 +35,16 @@ services:
       - member
       - paper
       - registry
+  gateway:
+    container_name: gateway
+    build:
+      dockerfile: ./gateway/Dockerfile
+      context: .
+    ports:
+      - 3034:4000
+    links:
+      - paper
+      - registry
+    depends_on:
+      - paper
+      - registry

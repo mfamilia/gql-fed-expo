@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@apollo/gateway": "^2.4.3",
+    "@apollo/server": "^4.7.1"
+  },
+  "scripts": {
+    "start": "node index.mjs"
+  }
+}
