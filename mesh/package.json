@@ -5,6 +5,7 @@
     "@graphql-mesh/openapi": "^0.93.1",
     "@graphql-mesh/transform-encapsulate": "^0.93.1",
     "@graphql-mesh/transform-prefix": "^0.93.1",
+    "@graphql-mesh/transform-rename": "^0.93.1",
     "@whatwg-node/fetch": "^0.8.8",
     "graphql": "^16.6.0"
   },

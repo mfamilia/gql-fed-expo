@@ -20,6 +20,20 @@ services:
       context: .
     ports:
       - 3033:3033
+  vendor_core:
+    container_name: vendor_core 
+    build:
+      dockerfile: ./services/vendor/core/Dockerfile
+      context: .
+    ports:
+      - 3036:3036
+  vendor_checklist:
+    container_name: vendor_checklist
+    build:
+      dockerfile: ./services/vendor/checklist/Dockerfile
+      context: .
+    ports:
+      - 3035:3035  
   mesh:
     container_name: mesh
     build:

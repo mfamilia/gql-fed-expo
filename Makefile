@@ -3,8 +3,6 @@ install:
 	curl -sSL https://router.apollo.dev/download/nix/latest | sh
 
 gsuper:
-	APOLLO_ELV2_LICENSE=accept rover graph introspect http://localhost:3031/graphql --output ./schemas/registry.gql
-	APOLLO_ELV2_LICENSE=accept rover graph introspect http://localhost:3032/graphql --output ./schemas/paper.gql
 	APOLLO_ELV2_LICENSE=accept rover supergraph compose --config ./supergraph.yaml --output supergraph.graphql
 
 rdsuper:

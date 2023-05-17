@@ -38,3 +38,4 @@ lerna-debug.log*
 /schemas
 router
 supergraph.graphql
+schema.gql
