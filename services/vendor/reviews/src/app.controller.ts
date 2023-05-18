@@ -1,25 +1,24 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Controller, Get, Param } from '@nestjs/common';
+import { ApiOperation, ApiResponse, ApiTags, ApiParam } from '@nestjs/swagger';
 import { AppService } from './app.service';
-import { AuthGuard } from './auth.gard';
-import { Member } from './member.dto';
+import { Vendor } from './vendor.dto';
 
-@ApiTags('members')
-@Controller()
+@ApiTags('vendor')
+@Controller('vendor')
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  @Get()
+  @Get('/:id')
   @ApiResponse({
     status: 200,
-    description: 'The member record',
-    type: Member
+    description: 'The vendor with reviews',
+    type: Vendor
   })
+  @ApiParam({ name: 'id', type: 'integer', required: true })
   @ApiOperation({
-    operationId: 'member'
+    operationId: 'vendor'
   })
-  @UseGuards(AuthGuard)
-  getPayload(): Member {
-    return this.appService.getPayload();
+  getVendor(@Param() { id }): Vendor {
+    return this.appService.getPayload(id);
   }
 }

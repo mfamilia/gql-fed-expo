@@ -6,8 +6,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Member example')
-    .setDescription('The Member API description')
+    .setTitle('Vendor Reviews')
+    .setDescription('The Vendor Reviews API description')
     .setVersion('1.0')
     .build();
 
@@ -22,6 +22,6 @@ async function bootstrap() {
 
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(3033);
+  await app.listen(3037);
 }
 bootstrap();

@@ -1,19 +1,18 @@
 import { Directive, Field, Int, ObjectType } from '@nestjs/graphql';
 
-@ObjectType()
+@ObjectType({ description: 'Unified vendor type' })
 @Directive('@key(fields: "id")')
 export class Vendor {
-  @Field(() => Int)
+  @Field(() => Int, { description: 'Id used to access all things related to this vendor' })
   id: number;
 
-  @Field(() => String)
+  @Field(() => String, { description: 'The first name of the vendor' })
   firstName: string;
 
-  @Field(() => String)
+  @Field(() => String, { description: 'The last name of the vendor' })
   lastName: string;
 
-  @Directive('@deprecated(reason: "This field will be removed in the version use fullName instead")')
-  @Field(() => String)
+  @Field(() => String, { deprecationReason: 'Use fullName instead' })
   name: string;
 }
 

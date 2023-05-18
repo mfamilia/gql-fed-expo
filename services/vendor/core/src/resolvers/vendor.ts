@@ -12,12 +12,12 @@ export class VendorResolver {
   ) { }
 
   @UseGuards(AuthGuard)
-  @Query(() => Vendor)
+  @Query(() => Vendor, { description: 'Get unified vendor' })
   async getVendor(@Args('id', { type: () => Int }) id: number) {
     return this.service.findOneById(id);
   }
 
-  @ResolveField(() => String)
+  @ResolveField(() => String, { description: 'The first and last name of the vendor' })
   async fullName(@Parent() v: Vendor): Promise<string> {
     return `${v.firstName} ${v.lastName}`;
   }

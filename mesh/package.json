@@ -3,14 +3,18 @@
     "@graphql-mesh/cli": "^0.82.35",
     "@graphql-mesh/graphql": "^0.93.1",
     "@graphql-mesh/openapi": "^0.93.1",
+    "@graphql-mesh/plugin-http-details-extensions": "^0.93.1",
     "@graphql-mesh/transform-encapsulate": "^0.93.1",
+    "@graphql-mesh/transform-filter-schema": "^0.93.2",
     "@graphql-mesh/transform-prefix": "^0.93.1",
     "@graphql-mesh/transform-rename": "^0.93.1",
+    "@graphql-mesh/transform-type-merging": "^0.93.1",
     "@whatwg-node/fetch": "^0.8.8",
     "graphql": "^16.6.0"
   },
   "scripts": {
-    "start": "mesh dev",
-    "build": "mesh build"
+    "start": "DEBUG=1 mesh start",
+    "start:dev": "DEBUG=1 mesh dev",
+    "build": "DEBUG=1 mesh build --throwOnInvalidConfig=true"
   }
 }

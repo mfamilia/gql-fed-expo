@@ -3,18 +3,32 @@ serve:
     exposedHeaders:
       - authentication
 sources:
-  - name: vendor_core 
+  - name: vendor_checklist
     handler:
       graphql:
         endpoint: http://localhost:3035/graphql
         operationHeaders:
           authorization: '{context.headers.authorization}'
-  - name: vendor_checklist
+  - name: vendor_core
     handler:
       graphql:
         endpoint: http://localhost:3036/graphql
         operationHeaders:
           authorization: '{context.headers.authorization}'
+  - name: vendor_reviews 
+    handler:
+      openapi:
+        source: http://localhost:3037/api-json
+        endpoint: http://localhost:3037/
+    transforms:
+      - typeMerging:
+          queryFields:
+            - queryFieldName: vendor
+              keyField: id
+      - filterSchema:
+          mode: bare
+          filters:
+            - Query.!vendor
   - name: registries
     handler:
       graphql:
@@ -75,3 +89,6 @@ sources:
             subscription: true
       - prefix:
           value: Membership_
+plugins:
+  - httpDetailsExtensions:
+      if: "env.DEBUG == 1"

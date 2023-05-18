@@ -34,21 +34,35 @@ services:
       context: .
     ports:
       - 3035:3035  
+  vendor_reviews:
+    container_name: vendor_reviews
+    build:
+      dockerfile: ./services/vendor/reviews/Dockerfile
+      context: .
+    ports:
+      - 3037:3037 
   mesh:
     container_name: mesh
     build:
       dockerfile: ./mesh/Dockerfile
       context: .
+      network: host
     ports:
       - 3034:4000
     links:
       - member
       - paper
       - registry
+      - vendor_core
+      - vendor_checklist
+      - vendor_reviews
     depends_on:
       - member
       - paper
       - registry
+      - vendor_core
+      - vendor_checklist
+      - vendor_reviews
   gateway:
     container_name: gateway
     build:

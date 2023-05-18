@@ -10,10 +10,10 @@ export class Vendor {
   @Directive('@external')
   id: number;
 
-  @Field(() => [Task])
+  @Field(() => [Task], { description: 'The list of tasks that needs to be completed' })
   todoTasks: Task[]
 
-  @Field(() => [Task])
+  @Field(() => [Task], { description: 'The list of tasks that have been completed' })
   completedTasks: Task[]
 }
 
